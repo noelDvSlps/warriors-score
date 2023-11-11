@@ -13,14 +13,13 @@ export const getGames = () => {
     headers: myHeaders,
     redirect: "follow",
   };
-  return fetch(
-    API_CONFIG.baseUrl + "/games?season=2023&team=11",
-    requestOptions
-  ).then((response) => {
-    if (!response.ok) {
-      throw new Error("could not get game");
-    }
+  return fetch(API_CONFIG.baseUrl + "/games?season=2023", requestOptions).then(
+    (response) => {
+      if (!response.ok) {
+        throw new Error("could not get game");
+      }
 
-    return response.json();
-  });
+      return response.json();
+    }
+  );
 };
